@@ -47,6 +47,9 @@ public class SimpleXMLMapperGenerator extends AbstractXmlGenerator {
         addSelectByPrimaryKeyElement(answer);
         addSelectAllElement(answer);
 
+        // on duplicate key update
+        addInsertInDuplicateKeyUpdateElement(answer);
+
         return answer;
     }
 
@@ -91,8 +94,8 @@ public class SimpleXMLMapperGenerator extends AbstractXmlGenerator {
     }
 
     protected void addInsertInDuplicateKeyUpdateElement(XmlElement parentElement) {
-        if (introspectedTable.getRules().generateUpdateByPrimaryKeyWithoutBLOBs()) {
-            AbstractXmlElementGenerator elementGenerator = new InsertOnDuplicateKeyUpdateElementGenerator(true);
+        if (introspectedTable.getRules().generateInsertOrUpdate()) {
+            AbstractXmlElementGenerator elementGenerator = new InsertOrUpdateElementGenerator(true);
             initializeAndExecuteGenerator(elementGenerator, parentElement);
         }
     }

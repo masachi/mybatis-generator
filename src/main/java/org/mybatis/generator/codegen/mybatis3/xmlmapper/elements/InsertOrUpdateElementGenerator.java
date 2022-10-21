@@ -26,11 +26,11 @@ import org.mybatis.generator.codegen.mybatis3.MyBatis3FormattingUtilities;
 import java.util.ArrayList;
 import java.util.List;
 
-public class InsertOnDuplicateKeyUpdateElementGenerator extends AbstractXmlElementGenerator {
+public class InsertOrUpdateElementGenerator extends AbstractXmlElementGenerator {
 
     private final boolean isSimple;
 
-    public InsertOnDuplicateKeyUpdateElementGenerator(boolean isSimple) {
+    public InsertOrUpdateElementGenerator(boolean isSimple) {
         super();
         this.isSimple = isSimple;
     }
@@ -44,7 +44,7 @@ public class InsertOnDuplicateKeyUpdateElementGenerator extends AbstractXmlEleme
             parameterType = introspectedTable.getRules().calculateAllFieldsClass();
         }
 
-        XmlElement answer = buildInitialInsert(introspectedTable.getInsertStatementId(), parameterType);
+        XmlElement answer = buildInitialInsert(introspectedTable.getInsertOrUpdateStatementId(), parameterType);
 
         StringBuilder insertClause = new StringBuilder();
 
@@ -91,7 +91,7 @@ public class InsertOnDuplicateKeyUpdateElementGenerator extends AbstractXmlEleme
 
         // on duplicate key update
         StringBuilder duplicateClause = new StringBuilder();
-        duplicateClause.append("on duplicate key update");
+        duplicateClause.append("on duplicate key update ");
 
         List<String> duplicateClauses = new ArrayList<>();
 

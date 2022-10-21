@@ -110,6 +110,16 @@ public class RulesDelegate implements Rules {
     }
 
     @Override
+    public boolean generateInsertOrUpdate() {
+        return rules.generateInsertOrUpdate();
+    }
+
+    @Override
+    public boolean generateInsertOrUpdateSelective() {
+        return rules.generateInsertOrUpdateSelective();
+    }
+
+    @Override
     public boolean generatePrimaryKeyClass() {
         return rules.generatePrimaryKeyClass();
     }

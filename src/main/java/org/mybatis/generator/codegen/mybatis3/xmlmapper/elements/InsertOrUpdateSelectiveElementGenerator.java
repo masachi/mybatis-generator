@@ -24,15 +24,15 @@ import org.mybatis.generator.codegen.mybatis3.MyBatis3FormattingUtilities;
 
 import java.util.List;
 
-public class InsertOnDuplicateKeyUpdateSelectiveElementGenerator extends AbstractXmlElementGenerator {
+public class InsertOrUpdateSelectiveElementGenerator extends AbstractXmlElementGenerator {
 
-    public InsertOnDuplicateKeyUpdateSelectiveElementGenerator() {
+    public InsertOrUpdateSelectiveElementGenerator() {
         super();
     }
 
     @Override
     public void addElements(XmlElement parentElement) {
-        XmlElement answer = buildInitialInsert(introspectedTable.getInsertSelectiveStatementId(),
+        XmlElement answer = buildInitialInsert(introspectedTable.getInsertOrUpdateSelectiveStatementId(),
                 introspectedTable.getRules().calculateAllFieldsClass());
 
         StringBuilder sb = new StringBuilder();
@@ -115,7 +115,7 @@ public class InsertOnDuplicateKeyUpdateSelectiveElementGenerator extends Abstrac
             // on duplicate key update
             sb.setLength(0);
             if(i == 0) {
-                sb.append("on duplicate key update");
+                sb.append("on duplicate key update ");
             }
             sb.append(introspectedColumn.getJavaProperty());
             sb.append(" != null"); //$NON-NLS-1$

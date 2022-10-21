@@ -82,6 +82,23 @@ public class AnnotatedClientGenerator extends JavaMapperGenerator {
         }
     }
 
+    // TODO insert or update annotated
+//    @Override
+//    protected void addInsertOrUpdateMethod(Interface interfaze) {
+//        if (introspectedTable.getRules().generateInsertOrUpdate()) {
+//            AbstractJavaMapperMethodGenerator methodGenerator = new AnnotatedInsertMethodGenerator(false);
+//            initializeAndExecuteGenerator(methodGenerator, interfaze);
+//        }
+//    }
+//
+//    @Override
+//    protected void addInsertOrUpdateSelectiveMethod(Interface interfaze) {
+//        if (introspectedTable.getRules().generateInsertOrUpdateSelective()) {
+//            AbstractJavaMapperMethodGenerator methodGenerator = new AnnotatedInsertSelectiveMethodGenerator();
+//            initializeAndExecuteGenerator(methodGenerator, interfaze);
+//        }
+//    }
+
     @Override
     protected void addSelectByExampleWithBLOBsMethod(Interface interfaze) {
         if (introspectedTable.getRules().generateSelectByExampleWithBLOBs()) {

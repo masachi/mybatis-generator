@@ -20,7 +20,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.masachi.mybatis.generator</groupId>
-  <version>0.0.1-RELEASE</version>
+  <version>0.0.2-RELEASE</version>
 
   <artifactId>mybatis-generator-core</artifactId>
   <packaging>jar</packaging>
@@ -355,6 +355,22 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
+
+  <distributionManagement>
+<!--    <repository>-->
+<!--      <id>github</id>-->
+<!--      <name>GitHub OWNER Apache Maven Packages</name>-->
+<!--      <url>https://maven.pkg.github.com/masachi/mybatis-generator</url>-->
+<!--    </repository>-->
+    <repository>
+      <id>rdc-releases</id>
+      <url>https://packages.aliyun.com/maven/repository/2166462-release-WmjfZi/</url>
+    </repository>
+<!--    <repository>-->
+<!--      <id>rdc-snapshots</id>-->
+<!--      <url>https://packages.aliyun.com/maven/repository/2166462-snapshot-fn64cY/</url>-->
+<!--    </repository>-->
+  </distributionManagement>
 
   <description>MyBatis Generator - a code generator for MyBatis.</description>
   <scm>

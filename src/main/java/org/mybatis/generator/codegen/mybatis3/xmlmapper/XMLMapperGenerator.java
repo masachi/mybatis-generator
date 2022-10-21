@@ -63,6 +63,7 @@ public class XMLMapperGenerator extends AbstractXmlGenerator {
 
         // on duplicate key update
         addInsertOnDuplicateKeyUpdateElement(answer);
+        addInsertOnDuplicateKeyUpdateSelectiveElement(answer);
 
         return answer;
     }
@@ -209,15 +210,15 @@ public class XMLMapperGenerator extends AbstractXmlGenerator {
 
     // on duplicate key update
     protected void addInsertOnDuplicateKeyUpdateElement(XmlElement parentElement) {
-        if (introspectedTable.getRules().generateUpdateByPrimaryKeyWithoutBLOBs()) {
-            AbstractXmlElementGenerator elementGenerator = new InsertOnDuplicateKeyUpdateElementGenerator(false);
+        if (introspectedTable.getRules().generateInsertOrUpdate()) {
+            AbstractXmlElementGenerator elementGenerator = new InsertOrUpdateElementGenerator(false);
             initializeAndExecuteGenerator(elementGenerator, parentElement);
         }
     }
 
     protected void addInsertOnDuplicateKeyUpdateSelectiveElement(XmlElement parentElement) {
-        if (introspectedTable.getRules().generateUpdateByPrimaryKeyWithoutBLOBs()) {
-            AbstractXmlElementGenerator elementGenerator = new InsertOnDuplicateKeyUpdateSelectiveElementGenerator();
+        if (introspectedTable.getRules().generateInsertOrUpdateSelective()) {
+            AbstractXmlElementGenerator elementGenerator = new InsertOrUpdateSelectiveElementGenerator();
             initializeAndExecuteGenerator(elementGenerator, parentElement);
         }
     }

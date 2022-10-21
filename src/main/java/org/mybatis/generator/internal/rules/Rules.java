@@ -45,6 +45,10 @@ public interface Rules {
      */
     boolean generateInsertSelective();
 
+    // on duplicate key update
+    boolean generateInsertOrUpdate();
+    boolean generateInsertOrUpdateSelective();
+
     /**
      * Calculates the class that contains all fields. This class is used as the
      * insert statement parameter, as well as the returned value from the select

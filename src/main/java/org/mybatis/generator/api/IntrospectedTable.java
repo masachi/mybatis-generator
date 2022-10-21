@@ -77,6 +77,10 @@ public abstract class IntrospectedTable {
         ATTR_DELETE_BY_PRIMARY_KEY_STATEMENT_ID,
         ATTR_INSERT_STATEMENT_ID,
         ATTR_INSERT_SELECTIVE_STATEMENT_ID,
+
+        // on duplicate key update
+        ATTR_INSERT_OR_UPDATE_STATEMENT_ID,
+        ATTR_INSERT_OR_UPDATE_SELECTIVE_STATEMENT_ID,
         ATTR_SELECT_ALL_STATEMENT_ID,
         ATTR_SELECT_BY_EXAMPLE_STATEMENT_ID,
         ATTR_SELECT_BY_EXAMPLE_WITH_BLOBS_STATEMENT_ID,
@@ -414,6 +418,10 @@ public abstract class IntrospectedTable {
         setDeleteByPrimaryKeyStatementId("deleteByPrimaryKey"); //$NON-NLS-1$
         setInsertStatementId("insert"); //$NON-NLS-1$
         setInsertSelectiveStatementId("insertSelective"); //$NON-NLS-1$
+        // on duplicate key update
+        setInsertOrUpdateStatementId("insertOrUpdate");
+        setInsertOrUpdateSelectiveStatementId("insertOrUpdateSelective");
+
         setSelectAllStatementId("selectAll"); //$NON-NLS-1$
         setSelectByExampleStatementId("selectByExample"); //$NON-NLS-1$
         setSelectByExampleWithBLOBsStatementId("selectByExampleWithBLOBs"); //$NON-NLS-1$
@@ -527,6 +535,14 @@ public abstract class IntrospectedTable {
         internalAttributes.put(InternalAttribute.ATTR_INSERT_STATEMENT_ID, s);
     }
 
+    public void setInsertOrUpdateStatementId(String s) {
+        internalAttributes.put(InternalAttribute.ATTR_INSERT_OR_UPDATE_STATEMENT_ID, s);
+    }
+
+    public void setInsertOrUpdateSelectiveStatementId(String s) {
+        internalAttributes.put(InternalAttribute.ATTR_INSERT_OR_UPDATE_SELECTIVE_STATEMENT_ID, s);
+    }
+
     public void setDeleteByPrimaryKeyStatementId(String s) {
         internalAttributes.put(
                 InternalAttribute.ATTR_DELETE_BY_PRIMARY_KEY_STATEMENT_ID, s);
@@ -630,6 +646,16 @@ public abstract class IntrospectedTable {
     public String getInsertStatementId() {
         return internalAttributes
                 .get(InternalAttribute.ATTR_INSERT_STATEMENT_ID);
+    }
+
+    public String getInsertOrUpdateStatementId() {
+        return internalAttributes
+                .get(InternalAttribute.ATTR_INSERT_OR_UPDATE_STATEMENT_ID);
+    }
+
+    public String getInsertOrUpdateSelectiveStatementId() {
+        return internalAttributes
+                .get(InternalAttribute.ATTR_INSERT_OR_UPDATE_SELECTIVE_STATEMENT_ID);
     }
 
     public String getDeleteByPrimaryKeyStatementId() {

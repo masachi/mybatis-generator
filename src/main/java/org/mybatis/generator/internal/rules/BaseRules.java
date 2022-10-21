@@ -74,6 +74,16 @@ public abstract class BaseRules implements Rules {
         return generateInsert();
     }
 
+    @Override
+    public boolean generateInsertOrUpdate() {
+        return generateInsert();
+    }
+
+    @Override
+    public boolean generateInsertOrUpdateSelective() {
+        return generateInsert();
+    }
+
     /**
      * Calculates the class that contains all fields. This class is used as the
      * insert statement parameter, as well as the returned value from the select
