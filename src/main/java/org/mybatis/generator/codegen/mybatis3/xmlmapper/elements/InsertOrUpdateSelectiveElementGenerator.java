@@ -54,6 +54,7 @@ public class InsertOrUpdateSelectiveElementGenerator extends AbstractXmlElementG
         answer.addElement(valuesTrimElement);
 
         // on duplicate key update
+        answer.addElement(new TextElement("on duplicate key update "));
         XmlElement duplicateUpdateTrimElement = new XmlElement("trim"); //$NON-NLS-1$
         duplicateUpdateTrimElement.addAttribute(new Attribute("prefix", "values (")); //$NON-NLS-1$ //$NON-NLS-2$
         duplicateUpdateTrimElement.addAttribute(new Attribute("suffix", ")")); //$NON-NLS-1$ //$NON-NLS-2$
@@ -114,9 +115,6 @@ public class InsertOrUpdateSelectiveElementGenerator extends AbstractXmlElementG
 
             // on duplicate key update
             sb.setLength(0);
-            if(i == 0) {
-                sb.append("on duplicate key update ");
-            }
             sb.append(introspectedColumn.getJavaProperty());
             sb.append(" != null"); //$NON-NLS-1$
             XmlElement duplicateKeyNotNullElement = new XmlElement("if"); //$NON-NLS-1$
@@ -129,7 +127,7 @@ public class InsertOrUpdateSelectiveElementGenerator extends AbstractXmlElementG
             sb.append(")");
             sb.append(',');
             duplicateKeyNotNullElement.addElement(new TextElement(sb.toString()));
-            valuesTrimElement.addElement(duplicateKeyNotNullElement);
+            duplicateUpdateTrimElement.addElement(duplicateKeyNotNullElement);
         }
 
         if (context.getPlugins().sqlMapInsertSelectiveElementGenerated(answer, introspectedTable)) {
