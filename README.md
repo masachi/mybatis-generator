@@ -1,5 +1,7 @@
 # Overview
 
+[![](https://jitpack.io/v/masachi/mybatis-generator.svg)](https://jitpack.io/#masachi/mybatis-generator)
+
 MyBatis Generator (MBG) is a code generator for the MyBatis SQL
 mapping framework.  MBG will introspect database tables (through JDBC
 DatabaseMetaData) and generate SQL Map XML files, Java model object (POJOs)
@@ -22,3 +24,6 @@ Support is provided through the user mailing list.  Mail
 questions or bug reports to:
 
   mybatis-user@googlegroups.com
+
+## 改动
+- 新增 ```insertOnDuplicateKeyUpdate``` 方法
