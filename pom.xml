@@ -20,7 +20,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.github.masachi</groupId>
-  <version>0.1.0-RELEASE</version>
+  <version>0.1.1-RELEASE</version>
 
   <artifactId>mybatis-generator</artifactId>
   <packaging>jar</packaging>
